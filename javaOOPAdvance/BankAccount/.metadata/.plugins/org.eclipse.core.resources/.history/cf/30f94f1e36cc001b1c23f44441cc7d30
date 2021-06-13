@@ -1,0 +1,43 @@
+package com.axsosacademy.bankacountassignment;
+import java.util.Random;
+
+public class BankAccount {
+	private String accountNumber;
+	private double checkingBalance;
+	private double savingBalance;
+	private static int accounts = 0;
+	private static double totalAmount = 0;
+	
+	//Constructor
+	public BankAccount() {
+		this.accounts += 1;
+		this.totalAmount += savingBalance+checkingBalance;
+		this.accountNumber = generateAccountNumber();
+	}
+	
+	//Seters
+	
+	//Geters
+	public double getCheckingBalance() {
+		return this.checkingBalance;
+	}
+	public double getSavingBalance() {
+		return this.savingBalance;
+	}
+	
+	public void deposit(String accountName , int amount) {
+		
+	}
+	
+	private String generateAccountNumber() {
+		Random r = new Random();
+		String accountNum = new String();
+		for (int i = 0 ; i < 10 ; i++) {
+			accountNum += r.nextInt(9);
+		}
+		return accountNum;
+	}
+	
+	
+	
+}

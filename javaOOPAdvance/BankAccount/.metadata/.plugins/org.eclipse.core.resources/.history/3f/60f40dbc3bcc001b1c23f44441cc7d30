@@ -1,0 +1,13 @@
+package com.axsosacademy.bankacountassignment;
+
+public class BankAccountTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		BankAccount baraSalameh = new BankAccount();
+		BankAccount khalilKhalil = new BankAccount();
+		
+		System.out.println(baraSalameh.getAccountNumber());
+	}
+
+}

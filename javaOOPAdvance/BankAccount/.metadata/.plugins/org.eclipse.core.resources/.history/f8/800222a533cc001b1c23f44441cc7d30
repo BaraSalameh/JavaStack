@@ -1,0 +1,13 @@
+package com.axsosacademy.bankacountassignment;
+
+public class BankAccount {
+	private String accountNumber;
+	private double checkingBalance;
+	private double savingBalance;
+	private static int accounts = 0;
+	
+	public BankAccount() {
+		this.accounts += 1;
+	}
+	
+}
