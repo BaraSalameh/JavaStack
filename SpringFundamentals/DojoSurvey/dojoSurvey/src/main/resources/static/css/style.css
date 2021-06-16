@@ -1,0 +1,30 @@
+@charset "ISO-8859-1";
+body{
+	padding:100px 250px;
+}
+main{
+	margin: auto auto;
+	padding:100px;
+	background-color:silver;
+}
+main div{
+	display:flex;
+	justify-content:space-between;
+}
+main form input, select{
+	min-width:300px;
+}
+div.commentDiv{
+	display:flex;
+	flex-direction:column;
+	justify-content:start;
+}
+div.buttonDiv{
+	display:flex;
+	justify-content:end;
+}
+form input#submitButton{
+	background-color:blue;
+	color:white;
+	max-width:100px;
+}
