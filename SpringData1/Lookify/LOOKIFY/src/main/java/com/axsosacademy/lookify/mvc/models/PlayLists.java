@@ -1,0 +1,92 @@
+package com.axsosacademy.lookify.mvc.models;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.sun.istack.NotNull;
+
+@Entity
+@Table(name="playlists")
+public class PlayLists {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	
+	@Min(5)
+	@NotNull
+	private String title;
+	
+	@Min(5)
+	@NotNull
+	private String artist;
+	
+	@Min(value=1)
+	@Max(value=10)
+	@NotNull
+	private int rating;
+	
+	@Column(updatable=false)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date createdAt;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date updatedAt;
+	
+	public PlayLists() {
+		
+	}
+	public PlayLists(String title, String artist, int rating) {
+		this.title = title;
+		this.artist = artist;
+		this.rating = rating;		
+	}
+	
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public String getArtist() {
+		return artist;
+	}
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+	public int getRating() {
+		return rating;
+	}
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+	
+	@PrePersist
+	public void OnCreate() {
+		this.createdAt = new Date();
+	}
+	
+	@PreUpdate
+	public void onUpdate() {
+		this.updatedAt = new Date();
+	}
+}
